@@ -112,3 +112,11 @@ async def chat(request: ChatRequest):
 @app.get("/")
 async def root():
     return {"message": "Persona-Adaptive Support Agent API is running"}
+
+# -------------------------------
+# Health Check Endpoint (for UptimeRobot)
+# -------------------------------
+
+@app.get("/health")
+async def health():
+    return {"status": "ok"}
