@@ -109,14 +109,12 @@ async def chat(request: ChatRequest):
 # Health Check Endpoint
 # -------------------------------
 
-@app.get("/")
+from fastapi import Response
+
+@app.api_route("/", methods=["GET", "HEAD"])
 async def root():
     return {"message": "Persona-Adaptive Support Agent API is running"}
 
-# -------------------------------
-# Health Check Endpoint (for UptimeRobot)
-# -------------------------------
-
-@app.get("/health")
+@app.api_route("/health", methods=["GET", "HEAD"])
 async def health():
-    return {"status": "ok"}
+    return Response(status_code=200)
